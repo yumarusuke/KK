@@ -39,4 +39,4 @@ def food3():
     return render_template("food3.html")
 
 
-app.run(debug=True)
+app.run(debug=True, host=="0.0.0.0")
