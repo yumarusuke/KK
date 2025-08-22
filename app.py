@@ -38,5 +38,8 @@ def food2():
 def food3():
     return render_template("food3.html")
 
+@app.route("/map")
+def map():
+    return render_template("map.html")
 
 app.run(debug=True, host="0.0.0.0", port=5001)
