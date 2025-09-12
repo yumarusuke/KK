@@ -42,6 +42,10 @@ def food3():
 def map():
     return render_template("map.html")
 
+@app.route("/signin")
+def signin():
+    return render_template("signin.html")
+
 @app.route("/otamesi")
 def otamesi():
     namae="ゆうまる"
