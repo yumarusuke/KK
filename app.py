@@ -42,4 +42,10 @@ def food3():
 def map():
     return render_template("map.html")
 
+@app.route("/otamesi")
+def otamesi():
+    namae="ゆうまる"
+    namae2="レイマル"
+    return render_template("お試し.html",abc=namae,aaa=namae2)
+
 app.run(debug=True, host="0.0.0.0", port=5001)
