@@ -2,33 +2,35 @@
 
 {% block content %}
 
-<h3 style="background-color: #c4f5fb; padding: 10px; border-left: 5px solid #3498db;">
-  登録
-</h3>
-<h6 style="text-align:light">このアプリは献立を考えるのが難しい人,<br>買い物をするのか面倒（辛い）人のために<br>役立つものです</h6>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">📝</span>
-  <input type="text" class="form-control" placeholder="user name" aria-label="Username" aria-describedby="basic-addon1">
-</div>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon2">@</span>
-  <input type="text" class="form-control" placeholder="mail address" aria-label="Username" aria-describedby="basic-addon1">
-</div>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon3">🔑</span>
-  <input type="text" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1">
-</div>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon4">🔑</span>
-  <input type="text" class="form-control" placeholder="password2" aria-label="Username" aria-describedby="basic-addon1">
-</div>
-<div class="input-group">
-  <span class="input-group-text">アレルギー</span>
-  <textarea class="form-control" aria-label="With textarea"></textarea>
-</div>
-<br>
-<div class="d-grid gap-2">
-  <button class="btn btn-primary" type="button">sign in</button>
-</div>
+<form action="/register" method="post">
+  <h3 style="background-color: #c4f5fb; padding: 10px; border-left: 5px solid #3498db;">
+    登録
+  </h3>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">📝</span>
+    <input name="name" type="text" class="form-control" placeholder="user name" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon2">@</span>
+    <input name="mailaddress" type="email" class="form-control" placeholder="mail address" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon3">🔑</span>
+    <input name="password" type="password" class="form-control" placeholder="password" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon4">🔑</span>
+    <input name="password" type="password" class="form-control" placeholder="password2" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  <div class="input-group">
+    <span class="input-group-text">アレルギー</span>
+    <textarea name="allergie" class="form-control" aria-label="With textarea"></textarea>
+  </div>
+  <br>
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" type="submit">登録</button>
+  </div>
+
+</form>
 
 {% endblock %}
