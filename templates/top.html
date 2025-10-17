@@ -2,10 +2,10 @@
 
 {% block content %}
 <center>
-<h2><p class="text-black-50 bg-info-subtle">このアプリは献立を考えるのが難しい人,買い物をするのか面倒（辛い）人のために役立つものです</p></h2>
+<img src="/static/イルカシェフ.png" width="400px" height="400px">
 </center>
 <center>
-<img src="/static/イルカシェフ.png" width="400px" height="400px">
+<h2><p class="text-black-50 bg-info-subtle">このアプリは献立を考えるのが難しい人<br>買い物をするのか面倒（辛い）人のために役立つものです</p></h2>
 </center>
   <div id="carouselExampleIndicators" class="carousel slide">
   <div class="carousel-indicators">
@@ -17,15 +17,11 @@
   今週のおすすめメニュー
 </h2>
   <div class="carousel-inner">
+    {% for r in recipe3 %}
     <div class="carousel-item active">
-      <img src="/static/秋刀魚.jpg" width="100px" height="250px" class="d-block w-100" alt="...">
+      <img src="{{r.photo}}" width="100px" height="250px" class="d-block w-100" alt="...">
     </div>
-    <div class="carousel-item">
-      <img src="/static/メロン.jpg" width="100px" height="250px" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="/static/ソーセージ.jpg" width="100px" height="250px" class="d-block w-100" alt="...">
-    </div>
+    {% endfor %}
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -38,8 +34,8 @@
   <div id="carouselExample" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" class="active" aria-current="true" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" class="active" aria-current="true" aria-label="Slide 3"></button>
   </div>
   <h2 class="text-center" style="background-color: #c2f5fc; padding: 10px; border-left: 5px solid #3498db;">
   一度調べたことあるメニュー

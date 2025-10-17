@@ -43,3 +43,8 @@ class store(Model):
 
 db.create_tables([Person])
 db.create_tables([Family])
+db.create_tables([Recipe])
+
+# Recipe.create(name="さんま", photo="/static/秋刀魚.jpg", link="https://cookpad.com/jp/search/さんま")
+# Recipe.create(name="メロン", photo="/static/メロン.jpg", link="https://cookpad.com/jp/search/メロン")
+# Recipe.create(name="ソーセージ", photo="/static/ソーセージ.jpg", link="https://cookpad.com/jp/search/ソーセージ")
