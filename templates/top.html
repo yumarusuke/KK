@@ -18,8 +18,10 @@
 </h2>
   <div class="carousel-inner">
     {% for r in recipe3 %}
-    <div class="carousel-item active">
-      <img src="{{r.photo}}" width="100px" height="250px" class="d-block w-100" alt="...">
+    <div class="carousel-item {% if loop.index0 == 0 %}active{% endif %}">
+      <a href="{{r.link}}" target="_blank">
+        <img src="{{r.photo}}" width="100px" height="250px" class="d-block w-100" alt="...">
+      </a>
     </div>
     {% endfor %}
   </div>

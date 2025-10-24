@@ -4,11 +4,23 @@
 
 <h2 style="background-color: #c2f5fc; padding: 10px; border-left: 5px solid #3498db;">
   今日の主菜は、、、(投票)
-<h3>①唐揚げ</h3>
-<h3>②シチュー</h3>
-<h3>③オムライス</h3>
-<h2 style="background-color: #c2f5fc; padding: 10px; border-left: 5px solid #3498db;">
+</h2>
+    {% for r in fridge3 %}
+    <h1>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          {{r.name}}
+        </label>
+      </div>
+    </h1>
+    {% endfor %}
+   <br>
+    <center><button type="button" class="btn btn-outline-primary">登録</button></center>
+<h2 class="my-4" style="background-color: #c2f5fc; padding: 10px; border-left: 5px solid #3498db;">
   今日の主菜は、、、
 </h2>
-
+<h1>豚肉   3票</h1>
+<img src="/static/拍手２.png" width="100" height="100">
+<img src="/static/手3イラスト.jpeg" width="100" height="100">
 {% endblock %}

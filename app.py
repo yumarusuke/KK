@@ -5,6 +5,7 @@ login_manager = LoginManager()
 
 from database import Family
 from database import Recipe
+from database import Fridge
 
 from peewee import fn
 
@@ -31,7 +32,8 @@ def kion():
 
 @app.route("/vote")
 def vote():
-    return render_template("vote.html")
+    fridge3 = Fridge.select().order_by(fn.Random()).limit(3)
+    return render_template("vote.html", fridge3=fridge3)
 
 @app.route("/buy")
 def buy():
