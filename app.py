@@ -35,17 +35,17 @@ def vote():
     fridge3 = Fridge.select().order_by(fn.Random()).limit(3)
     return render_template("vote.html", fridge3=fridge3)
 
-@app.route("/buy")
-def buy():
-    return render_template("buy.html")
+@app.route("/need")
+def need():
+    return render_template("need.html")
 
-@app.route("/cold")
-def cold():
-    return render_template("cold.html")
+@app.route("/check")
+def check():
+    return render_template("check.html")
 
-@app.route("/suggest")
-def suggest():
-    return render_template("suggest.html")
+@app.route("/recommend")
+def recommend():
+    return render_template("recommend.html")
 
 @app.route("/registration")
 def registration():
@@ -66,17 +66,17 @@ def register():
     family.save()
     return redirect("/")
 
-@app.route("/food")
-def food():
-    return render_template("food.html")
+@app.route("/buy")
+def buy():
+    return render_template("buy.html")
 
-@app.route("/food2")
-def food2():
-    return render_template("food2.html")
+@app.route("/buy2")
+def buy2():
+    return render_template("buy2.html")
 
-@app.route("/food3")
-def food3():
-    return render_template("food3.html")
+@app.route("/buy3")
+def buy3():
+    return render_template("buy3.html")
 
 @app.route("/map")
 def map():
