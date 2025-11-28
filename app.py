@@ -58,9 +58,9 @@ def need():
 def check():
     return render_template("check.html")
 
-@app.route("/recommend")
-def recommend():
-    return render_template("recommend.html")
+@app.route("/suggest")
+def suggest():
+    return render_template("suggest.html")
 
 @app.route("/registration")
 def registration():

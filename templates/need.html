@@ -1,10 +1,7 @@
+{% extends "layout.html" %}
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
+{% block content %}
+
  <h2 style="background-color: #c2f5fc; padding: 10px; border-left: 5px solid #3498db;">
   レシート読み込み
 </h2>
@@ -32,5 +29,9 @@
     </div>
   </dd>
 </dl>
-</body>
-    </html>
+<center>
+  <a href="/" class="btn btn-outline-info">topへ</a>
+</center>
+
+
+{% endblock %}
