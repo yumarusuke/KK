@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, session
 
 from flask_login import LoginManager
 login_manager = LoginManager()
@@ -6,10 +6,12 @@ login_manager = LoginManager()
 from database import Family
 from database import Recipe
 from database import Fridge
+from database import Vote
 
 from peewee import fn
 
 app = Flask(__name__)
+app.secret_key = "yumaru"
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -17,8 +19,9 @@ def load_user(user_id):
 
 @app.route("/")
 def top():
-    recipe3 = Recipe.select().order_by(fn.Random()).limit(3)
-    return render_template("top.html", recipe3=recipe3)
+    recipe3 = Recipe.select().where(Recipe.grade == "普通").order_by(fn.Random()).limit(3)
+    luxury3 = Recipe.select().where(Recipe.grade == "高級").order_by(fn.Random()).limit(3)
+    return render_template("top.html", recipe3=recipe3, luxury3=luxury3)
 
 @app.route("/kion")
 def kion():
@@ -33,7 +36,19 @@ def kion():
 @app.route("/vote")
 def vote():
     fridge3 = Fridge.select().order_by(fn.Random()).limit(3)
-    return render_template("vote.html", fridge3=fridge3)
+    user_name = session["user_name"]
+    return render_template("vote.html", fridge3=fridge3, user_name=user_name)
+
+@app.route("/vote2", methods=["post"])
+def vote2():
+    name = session["user_name"]
+    what = request.form["what"]
+    vote = Vote(
+        name=name,
+        what = what,
+    )
+    vote.save()
+    return redirect("/")
 
 @app.route("/need")
 def need():
@@ -93,6 +108,7 @@ def login():
     family = Family.select().where(Family.mailaddress==mailaddress, Family.password==password).first()
     if family is None:
         return redirect("/signin")
+    session["user_name"] = family.name
     return redirect("/")
 
 @app.route("/otamesi")

@@ -22,16 +22,17 @@ class Family(UserMixin, Model):
 class Vote(UserMixin, Model):
     name = CharField()
     what = CharField()
-
+    when = CharField()
     class Meta:
         database = db # This model uses the "people.db" database.
 class Recipe(Model):
     name = CharField()
     photo = CharField()
     link = CharField()
-
+    grade = CharField()
     class Meta:
         database = db # This model uses the "people.db" database.
+
 class Fridge(Model):
     name = CharField()
     category = CharField()
