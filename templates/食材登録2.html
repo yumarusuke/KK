@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2 style="background-color: #c2f5fc; padding: 10px; border-left: 5px solid #3498db;">
+  食材選択（肉・魚介）
+</h2>
+<p>
+(鶏)
+<br>
+<button type="button" class="btn btn-outline-primary"><img src="/static/卵.jpg" alt="" width="50px" height="50px">卵</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/鶏ひき肉.jpg" alt="" width="50px" height="50px">鶏のひき肉</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/鶏胸肉.jpg" alt="" width="50px" height="50px">鶏の胸肉</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/鶏ささみ肉.jpg" alt="" width="50px" height="50px">鶏のささみ肉</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/鶏手羽先.jpg" alt="" width="50px" height="50px">手羽先</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/鶏手羽元.jpg" alt="" width="50px" height="50px">手羽元</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/セセリ.jpg" alt="" width="50px" height="50px">せせり</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/bonziri.jpeg" alt="" width="50px" height="50px">ぼんじり</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/レバー.jpg" alt="" width="50px" height="50px">レバー</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/砂肝.jpg" alt="" width="50px" height="50px">砂肝</button>
+<br>
+<br>
+（豚肉）
+<br>
+<button type="button" class="btn btn-outline-primary"><img src="/static/豚肩ロース肉.jpg" alt="" width="50px" height="50px">豚かたロース肉</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/豚ロース肉.jpg" alt="" width="50px" height="50px">豚ロース肉</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/豚ヒレ肉.jpg" alt="" width="50px" height="50px">豚ヒレ肉</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/豚そともも肉.jpg" alt="" width="50px" height="50px">豚のそともも肉</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/豚もも肉.jpg" alt="" width="50px" height="50px">豚のもも肉</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/豚バラ肉.jpg" alt="" width="50px" height="50px">豚バラ肉</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/スペアリブ.jpg" alt="" width="50px" height="50px">豚スペアリブ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/ソーセージ.jpg" alt="" width="50px" height="50px">ウインナー（ソーセージ）</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/240_F_93677941_znPJlIP9JMCjQCy7YJTOoKbraqbNJUM8.jpg" alt="" width="50px" height="50px">ハム</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/ベーコン.jpg" alt="" width="50px" height="50px">ベーコン</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/サラミ.jpg" alt="" width="50px" height="50px">サラミ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/コンビーフ.jpg" alt="" width="50px" height="50px">コンビーフ</button>
+<br>
+<br>
+(牛肉)
+<br>
+<button type="button" class="btn btn-outline-primary"><img src="/static/サーロイン.jpeg" alt="" width="50px" height="50px">サーロイン</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/牛ロース.jpg" alt="" width="50px" height="50px">牛ロース</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/牛ヒレ肉.jpg" alt="" width="50px" height="50px">牛ヒレ肉</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/カルビ.jpg" alt="" width="50px" height="50px">牛カルビ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/たん.jpg" alt="" width="50px" height="50px">牛タン</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/はらみ.jpg" alt="" width="50px" height="50px">牛ハラミ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/ブロック.jpg" alt="" width="50px" height="50px">ブロック肉</button>
+<br>
+<br>
+(牛乳類)
+<br>
+<button type="button" class="btn btn-outline-primary"><img src="/static/牛乳.jpg" alt="" width="50px" height="50px">牛乳</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/バター.jpg " alt="" width="50px" height="50px">バター</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/チーズ.jpg" alt="" width="50px" height="50px">チーズ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/ヨーグルト.jpg" alt="" width="50px" height="50px">ヨーグルト</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/練乳.jpg" alt="" width="50px" height="50px">練乳</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/アイス.jpg" alt="" width="50px" height="50px">アイスクリーム（お任せ）</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/乳酸菌飲料.jpg" alt="" width="50px" height="50px">乳飲料</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/生クリーム.jpg" alt="" width="50px" height="50px">生クリーム</button>
+<br>
+<br>
+(魚)
+<br>
+<button type="button" class="btn btn-outline-primary"><img src="/static/鮭.jpg" alt="" width="50px" height="50px">サケ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/マグロ.jpg" alt="" width="50px" height="50px">マグロ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/ブリ.jpg" alt="" width="50px" height="50px">ブリ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/さば.jpg" alt="" width="50px" height="50px">サバ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/アジ.jpg" alt="" width="50px" height="50px">アジ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/たい.jpg" alt="" width="50px" height="50px">たい</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/ホッケ.jpg" alt="" width="50px" height="50px">ホッケ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/かれい.jpg" alt="" width="50px" height="50px">かれい</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/刺身盛り合わせ.jpg" alt="" width="50px" height="50px">刺身盛り合わせ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/いか.jpg" alt="" width="50px" height="50px">いか</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/たこ.jpg" alt="" width="50px" height="50px">たこ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/えび.jpg" alt="" width="50px" height="50px">えび</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/アサリ.jpg" alt="" width="50px" height="50px">アサリ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/しじみ.jpg" alt="" width="50px" height="50px">しじみ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/ホタテ.jpg" alt="" width="50px" height="50px">ホタテ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/わかめ.jpg" alt="" width="50px" height="50px">わかめ</button>
+<button type="button" class="btn btn-outline-primary"><img src="/static/ひじき.jpg" alt="" width="50px" height="50px">ひじき</button>
+
+<a href="/" class="btn btn-outline-info">topへ</a>
+{% endblock %}

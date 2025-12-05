@@ -33,6 +33,11 @@ class Recipe(Model):
     class Meta:
         database = db # This model uses the "people.db" database.
 
+class Buy(Model):
+    name = CharField()
+    class Meta:
+        database = db # This model uses the "people.db" database.
+
 class Fridge(Model):
     name = CharField()
     category = CharField()
@@ -44,6 +49,9 @@ class Fridge(Model):
 
 class Shohin(Model):
     name = CharField()
+    day = DateField()
+    expiration = DateField()
+    how = DateField()
 
     class Meta:
         database = db # This model uses the "people.db" database.
@@ -60,6 +68,7 @@ db.create_tables([Family])
 db.create_tables([Recipe])
 db.create_tables([Fridge])
 db.create_tables([Vote])
+db.create_tables([Shohin])
 
 # Recipe.create(name="さんま", photo="/static/秋刀魚.jpg", link="https://cookpad.com/jp/search/さんま")
 # Recipe.create(name="メロン", photo="/static/メロン.jpg", link="https://cookpad.com/jp/search/メロン")

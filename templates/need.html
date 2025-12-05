@@ -5,30 +5,36 @@
  <h2 style="background-color: #c2f5fc; padding: 10px; border-left: 5px solid #3498db;">
   レシート読み込み
 </h2>
-<dl>
-  <dt>写真</dt>
-  <dd>
-    <div>
-    <label><span>背面カメラ</span>
-    <input type="file" capture="environment" accept="image/*"></label>
-    </div>
-    <div>
-    <label><span>インカメラ</span>
-    <input type="file" capture="user" accept="image/*"></label>
-    </div>
-  </dd>
-  <dt>動画</dt>
-  <dd>
-    <div>
-    <label><span>背面カメラ</span>
-    <input type="file" capture="environment" accept="video/*"></label>
-    </div>
-    <div>
-    <label><span>インカメラ</span>
-    <input type="file" capture="user" accept="video/*"></label>
-    </div>
-  </dd>
-</dl>
+<form action="/needer" method="post" enctype="multipart/form-data">
+  <dl>
+    <dt>写真</dt>
+    <dd>
+      <div>
+      <label><span>背面カメラ</span>
+      <input type="file" name="file" capture="environment" accept="image/*"></label>
+      </div>
+      <div>
+      <label><span>インカメラ</span>
+      <input type="file" name="file2" capture="user" accept="image/*"></label>
+      </div>
+    </dd>
+    <dt>動画</dt>
+    <dd>
+      <div>
+      <label><span>背面カメラ</span>
+      <input type="file" name="file3" capture="environment" accept="video/*"></label>
+      </div>
+      <div>
+      <label><span>インカメラ</span>
+      <input type="file" name="file4" capture="user" accept="video/*"></label>
+      </div>
+    </dd>
+  </dl>
+  <center>
+    <button type="submit" class="btn btn-outline-info">実行</button>
+  </center>
+</form>
+{{receipt | safe}}
 <center>
   <a href="/" class="btn btn-outline-info">topへ</a>
 </center>

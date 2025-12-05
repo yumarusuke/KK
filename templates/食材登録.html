@@ -8,7 +8,10 @@
 <form>
 （あ行）
 <br>
-<button type="button" class="btn btn-outline-primary" data-bs-toggle="button"><img src="/static/アスパラ.jpg" alt="" width="50px" height="50px">アスパラガス</button>
+<input img src="/static/アスパラガス.jpg" alt="" width="50px" height="50px" type="checkbox" class="btn-check" id="btn-check" autocomplete="off">
+<label class="btn btn-primary" for="btn-check">アスパラガス</label>
+<input type="checkbox" class="btn-check" autocomplete="off">
+<label class="btn btn-primary" for="btn-check"><img src="/static/えだまめ.jpg" alt="" width="50px" height="50px">枝豆</label>
 <button type="button" class="btn btn-outline-primary" data-bs-toggle="button"><img src="/static/えだまめ.jpg" alt="" width="50px" height="50px">枝豆</button>
 <button type="button" class="btn btn-outline-primary" data-bs-toggle="button"><img src="/static/大葉.jpg" alt="" width="50px" height="50px">大葉・しそ</button>
 <button type="button" class="btn btn-outline-primary" data-bs-toggle="button"><img src="/static/オクラ.jpg" alt="" width="50px" height="50px">オクラ</button>
@@ -94,6 +97,17 @@
 <button type="button" class="btn btn-outline-primary"><img src="/static/おもち.jpeg" alt="" width="50px" height="50px">おもち</button>
 
 <br>
+<button onclick="sendToPython()">登録</button>
+  <script>
+   const btn = document.querySelector('.btn-outline-primary');
+   async function sendToPython() {
+      const selectedTexts = Array.from(document.querySelectorAll('.btn.active')).map(btn => btn.innerText.trim());
+      await fetch('/api/submit_choices', {
+        method: 'Post',
+        headers: {'Content-Type': 'application/json' },
+        body: JSON.stringify({ choices: selectedTexts })})
+    }
+  </script>
 
  <a href="/" class="btn btn-outline-info">カート</a>
 

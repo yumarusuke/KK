@@ -7,8 +7,14 @@ from database import Family
 from database import Recipe
 from database import Fridge
 from database import Vote
+from database import Shohin
 
 from peewee import fn
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = "yumaru"
@@ -54,13 +60,63 @@ def vote2():
 def need():
     return render_template("need.html")
 
+@app.route("/needer", methods=["post"])
+def needer():
+    import pytesseract
+    import cv2
+    import numpy as np
+    from PIL import Image
+    # img = Image.open("static/IMG_4750.jpg")
+    file = request.files["file"]
+    file2 = request.files["file2"]
+    file3 = request.files["file3"]
+    file4 = request.files["file4"]
+    if file.filename == "":
+        return "ファイルが選択されていません", 400
+    img_bytes = file.read()
+
+    npimg = np.frombuffer(img_bytes, np.uint8)
+    img = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
+
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY +  cv2.THRESH_OTSU)[1]
+
+    text = pytesseract.image_to_string(gray, lang="jpn")
+    from google import genai
+    client = genai.Client(api_key= os.environ.get("API_KEY"))
+    response = client.models.generate_content(
+        model="gemini-2.5-flash", contents=f"以下のTesseractで画像から文字にしたものを、綺麗なHTMLにしてみやすくしてください。なおHTMLのコードのbodyタグの中身だけ出してください。前後の「```」は要りません。{text}"
+    )
+    print(response.text)
+    return render_template("need.html", receipt=response.text)
+
 @app.route("/check")
 def check():
     return render_template("check.html")
 
 @app.route("/suggest")
 def suggest():
-    return render_template("suggest.html")
+    shohin = Shohin.select()
+    names = [s.name for s in Shohin.select(Shohin.name)]
+    print(names)
+    from google import genai
+    client = genai.Client(api_key= os.environ.get("API_KEY"))
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=f"""この中の食材を何個か使って一週間分の献立を作ってください。また、食材が偏らないようにバランスよく作ってください。そして,"<div class="card" style="width: 18rem;">
+  <img src="/static/[曜日].png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">唐揚げ</h5>
+    <p class="card-text">今日のご飯は</p>
+ <a href="https://cookpad.com/jp/search/%E5%94%90%E6%8F%9A%E3%81%92?event=search.suggestion&order=recent" target="_blank">クックパッド：唐揚げ</a>
+  </div>"のような形式で表示してください。なおHTMLのコードのbodyタグの中身だけ出してください。{names}"""
+    )
+    print(response.text)
+    return render_template("suggest.html", menu=response.text)
+
+@app.route("/index")
+def index():
+    return render_template("index.html")
 
 @app.route("/registration")
 def registration():
@@ -93,6 +149,18 @@ def buy2():
 def buy3():
     return render_template("buy3.html")
 
+@app.route("/食材選択")
+def 食材選択():
+    return render_template("食材選択.html")
+
+@app.route("/食材選択2")
+def 食材選択2():
+    return render_template("食材選択2.html")
+
+@app.route("/食材選択3")
+def 食材選択3():
+    return render_template("食材選択3.html")
+
 @app.route("/map")
 def map():
     return render_template("map.html")
@@ -100,6 +168,10 @@ def map():
 @app.route("/signin")
 def signin():
     return render_template("signin.html")
+
+@app.route("/お試し２")
+def お試し２():
+    return render_template("お試し２.html")
 
 @app.route("/login", methods=["post"])
 def login():
