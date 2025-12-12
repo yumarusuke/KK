@@ -39,12 +39,6 @@ def kion():
     kion = data["data"][0]["app_temp"]
     return render_template("kion.html", kion=kion)
 
-@app.route("/vote")
-def vote():
-    fridge3 = Fridge.select().order_by(fn.Random()).limit(3)
-    user_name = session["user_name"]
-    return render_template("vote.html", fridge3=fridge3, user_name=user_name)
-
 @app.route("/vote2", methods=["post"])
 def vote2():
     name = session["user_name"]
@@ -55,6 +49,12 @@ def vote2():
     )
     vote.save()
     return redirect("/")
+
+
+@app.route("/vote")
+def vote():
+    fridge3 = Fridge.select().order_by(fn.Random()).limit(3)
+    return render_template("vote.html", fridge3=fridge3)
 
 @app.route("/need")
 def need():
@@ -149,6 +149,7 @@ def buy2():
 def buy3():
     return render_template("buy3.html")
 
+
 @app.route("/食材選択")
 def 食材選択():
     return render_template("食材選択.html")
@@ -165,13 +166,14 @@ def 食材選択3():
 def map():
     return render_template("map.html")
 
-@app.route("/signin")
-def signin():
-    return render_template("signin.html")
 
 @app.route("/お試し２")
 def お試し２():
     return render_template("お試し２.html")
+
+@app.route("/signin")
+def signin():
+    return render_template("signin.html")
 
 @app.route("/login", methods=["post"])
 def login():

@@ -3,7 +3,7 @@
 {% block content %}
 
 <h2 style="background-color: #c2f5fc; padding: 10px; border-left: 5px solid #3498db;">
-  今日の主菜は、、、({{user_name}}の投票)
+  今日の主菜は、、、（大津佑弥の投票）
 </h2>
 <form action="/vote2" method="post">
     {% for r in fridge3 %}
@@ -28,7 +28,7 @@
 {%for food in fridge3%}
 <div class="form-check">
 <h1>
-  {{food.name}}
+ 肉じゃが
 </h1>
 </div>
 {% endfor %}
