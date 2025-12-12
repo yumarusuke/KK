@@ -1,5 +1,6 @@
 from peewee import *
 from flask_login import UserMixin
+import datetime
 
 db = SqliteDatabase('Fridge_chef.db')
 
@@ -22,7 +23,7 @@ class Family(UserMixin, Model):
 class Vote(UserMixin, Model):
     name = CharField()
     what = CharField()
-    when = CharField()
+    when = DateField(default=datetime.datetime.now)
     class Meta:
         database = db # This model uses the "people.db" database.
 class Recipe(Model):

@@ -25,6 +25,8 @@ def load_user(user_id):
 
 @app.route("/")
 def top():
+    if session.get("user_name") is None:
+        return redirect("/signin")
     recipe3 = Recipe.select().where(Recipe.grade == "普通").order_by(fn.Random()).limit(3)
     luxury3 = Recipe.select().where(Recipe.grade == "高級").order_by(fn.Random()).limit(3)
     return render_template("top.html", recipe3=recipe3, luxury3=luxury3)
@@ -53,8 +55,12 @@ def vote2():
 
 @app.route("/vote")
 def vote():
+    name = session["user_name"]
     fridge3 = Fridge.select().order_by(fn.Random()).limit(3)
-    return render_template("vote.html", fridge3=fridge3)
+    import datetime
+    today = datetime.date.today()
+    votes = Vote.select(Vote.what, fn.COUNT(Vote.id).alias('count')).where(Vote.when == today).group_by(Vote.what)
+    return render_template("vote.html", fridge3=fridge3,name=name,votes=votes)
 
 @app.route("/need")
 def need():

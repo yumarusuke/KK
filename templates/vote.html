@@ -3,7 +3,7 @@
 {% block content %}
 
 <h2 style="background-color: #c2f5fc; padding: 10px; border-left: 5px solid #3498db;">
-  今日の主菜は、、、（大津佑弥の投票）
+  今日の主菜は、、、（{{name}}の投票）
 </h2>
 <form action="/vote2" method="post">
     {% for r in fridge3 %}
@@ -20,15 +20,27 @@
       </div>
     </h1>
     {% endfor %}
+    <h1>
+      <div class="form-check">
+        <input class="form-check-input"
+        type="radio"
+        name="what"
+        value="なんでもいい"
+        id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          なんでもいい
+        </label>
+      </div>
+    </h1>
    <br>
     <center><button type="submit" class="btn btn-outline-primary">登録</button></center>
 <h2 class="my-4" style="background-color: #c2f5fc; padding: 10px; border-left: 5px solid #3498db;">
   今日の主菜は、、、
 </h2>
-{%for food in fridge3%}
+{%for vote in votes%}
 <div class="form-check">
 <h1>
- 肉じゃが
+ {{ vote.what}} {{vote.count}}票
 </h1>
 </div>
 {% endfor %}
